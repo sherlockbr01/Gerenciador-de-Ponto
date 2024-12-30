@@ -16,11 +16,14 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import cm, inch
 from reportlab.lib import colors
 
-
 app = Flask(__name__)
 app.secret_key = '@ssjjti'  # Chave secreta para usar sessões
 
-locale.setlocale(locale.LC_TIME, 'pt_BR.utf8')
+# Comentar a linha de localidade
+# locale.setlocale(locale.LC_TIME, 'pt_BR.utf8')
+
+# Ou usar uma localidade alternativa
+locale.setlocale(locale.LC_TIME, 'en_US.utf8')
 
 
 def conectar_banco():
@@ -726,6 +729,7 @@ def calcular_saldo_final(total_horas_extra, total_horas_devedoras):
     else:
         return saldo_final, "devedor"
 
+
 # Função para calcular as horas trabalhadas em formato avançado
 def calcular_horas_trabalhadas_relatorio_avancado(entradas_saidas):
     horas_totais = timedelta()
@@ -740,9 +744,8 @@ def calcular_horas_trabalhadas_relatorio_avancado(entradas_saidas):
     return horas_totais
 
 
-# Função para calcular horas extras ou devedoras
 def calcular_extra_devedor(horas_trabalhadas, carga_horaria_padrao):
-    carga_horaria_padrao = timedelta(hours=carga_horaria_padrao)
+    carga_horaria_padrao = timedelta(hours=carga_horaria_padrao)  # Este é o valor da carga horária (4, 7 ou 8 horas)
     horas_trabalhadas_timedelta = timedelta(hours=int(horas_trabalhadas.split(":")[0]),
                                             minutes=int(horas_trabalhadas.split(":")[1]),
                                             seconds=int(horas_trabalhadas.split(":")[2]))
@@ -754,15 +757,13 @@ def calcular_extra_devedor(horas_trabalhadas, carga_horaria_padrao):
         return str(diferenca), 'extra'
 
 
+
 # Função para formatar a data
 def formatar_data(data_str):
     data = datetime.strptime(data_str, "%Y-%m-%d")
-    dia = data.strftime("%d")
-    mes_ano = data.strftime("%b %y").lower()
-    data_formatada = f"{dia} {mes_ano}"
+    data_formatada = data.strftime("%d/%m/%y")
+    return data_formatada
 
-    dia_semana = data.strftime("%A").capitalize()
-    return f"{data_formatada}<br/>{dia_semana}"
 
 
 # Função para formatar o intervalo de datas
@@ -787,11 +788,21 @@ def formatar_nome(nome_completo):
     return " ".join([nome.capitalize() for nome in nomes])
 
 # Função para formatar timedelta avançado
+def formatar_intervalo_data(data_inicio, data_fim):
+    data_inicio_obj = datetime.strptime(data_inicio, "%Y-%m-%d")
+    data_fim_obj = datetime.strptime(data_fim, "%Y-%m-%d")
+    data_inicio_formatada = data_inicio_obj.strftime("%d/%m/%y")
+    data_fim_formatada = data_fim_obj.strftime("%d/%m/%y")
+
+    return f"De {data_inicio_formatada} a {data_fim_formatada}"
+
+# Função para formatar timedelta avançado
 def format_timedelta_avancado(td):
     total_seconds = int(td.total_seconds())
     hours, remainder = divmod(total_seconds, 3600)
     minutes, seconds = divmod(remainder, 60)
     return f"{hours:02}:{minutes:02}:{seconds:02}"
+
 
 
 # Função principal de geração do PDF
@@ -836,7 +847,7 @@ def gerar_pdf_avancado(data_inicio, data_fim, usuario, tipo_relatorio, pontos, c
              Paragraph(formatar_intervalo_data(data_inicio, data_fim), normal_style)],
             [Paragraph("Relatório:", header_style_bold), Paragraph('Avançado', normal_style)],
             [Paragraph("C. Horária:", header_style_bold),
-             Paragraph(f"{carga_horaria_padrao} horas diárias", normal_style)]
+             Paragraph(f"{carga_horaria_padrao} horas diárias", normal_style)]  # Aqui já está a linha do cabeçalho
         ]
 
         # Criando a tabela com os dados do cabeçalho
@@ -935,7 +946,7 @@ def gerar_pdf_avancado(data_inicio, data_fim, usuario, tipo_relatorio, pontos, c
         elements.append(Paragraph(formatar_nome(usuario), nome_e_data_style))
 
         # Adicionar data na posição desejada (mesma linha, alinhado à direita)
-        data_atual = datetime.today().strftime('%d %b de %Y').title()
+        data_atual = datetime.today().strftime('%d/%m/%y').title()
         elements.append(Spacer(1, -11))  # Ajuste para garantir que a data e o nome fiquem na mesma linha
         elements.append(Paragraph(f"Jataí, {data_atual}", data_style))  # Data de assinatura
 
@@ -969,8 +980,12 @@ def relatorios():
 
         # Definir carga horária padrão
         carga_horaria_padrao = 7  # Carga horária padrão de 7 horas
+
+        # Verificar a carga horária selecionada
         if carga_horaria_selecionada == "08 Horas":
             carga_horaria_padrao = 8  # Altera a carga horária para 8 horas
+        elif carga_horaria_selecionada == "04 Horas":
+            carga_horaria_padrao = 4  # Altera a carga horária para 4 horas
 
         # Definir as datas de início e fim com base no tipo de período selecionado
         if tipo_periodo == "hoje":

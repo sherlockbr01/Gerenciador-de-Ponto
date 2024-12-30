@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuário</title>
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #004d99; /* Azul forte */
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.edit-usuario-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px; /* Aumenta o espaçamento entre os campos */
+    display: flex;
+    flex-direction: column; /* Garante que a label fique acima do input */
+    align-items: center; /* Centraliza a label e o campo */
+}
+
+label {
+    display: block;
+    margin-bottom: 10px; /* Espaço entre a label e o campo */
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+input[type="text"], input[type="password"] {
+    width: 60%; /* Diminui a largura das caixas de entrada */
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid #888; /* Aumenta a espessura e altera a cor da borda */
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centraliza o conteúdo dentro dos inputs */
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #004d99; /* Azul forte no foco */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #004d99;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #003366; /* Tom mais escuro do azul */
+}
+
+.flash {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.flash.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.flash.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Estilo do Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+    </style>
+    <script>
+        // Funções para abrir e fechar o modal
+        function openModal() {
+            document.getElementById('tipoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('tipoModal').style.display = 'none';
+        }
+
+        // Função para atualizar o tipo de usuário
+        function submitTipo(tipo) {
+            document.getElementById('tipo').value = tipo;
+            document.getElementById('tipoLabel').innerText = 'Tipo: ' + tipo.charAt(0).toUpperCase() + tipo.slice(1);
+            closeModal();
+        }
+    </script>
+</head>
+<body class="edit-usuario-page">
+    <header>
+        <div class="container">
+            <h1>Sistema de Ponto</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('dashboard_usuario_admin') }}">Dashboard</a></li>
+                    <li><a href="{{ url_for('usuarios') }}">Usuários</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <section class="edit-usuario-section">
+                <h2>Editar Usuário</h2>
+                <!-- Adicionar mensagem de confirmação -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                    {% for category, message in messages %}
+                      <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                  {% endif %}
+                {% endwith %}
+                <form action="{{ url_for('editar_usuario', id=usuario[0]) }}" method="post">
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" value="{{ usuario[1] }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="matricula">Matrícula:</label>
+                        <input type="text" id="matricula" name="matricula" value="{{ usuario[2] }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" placeholder="Deixe em branco para manter a senha atual">
+                    </div>
+                    <div class="form-group">
+                        <label id="tipoLabel" for="tipo">Tipo: {{ usuario[4] }}</label>
+                        <button type="button" onclick="openModal()">Altere</button>
+                        <input type="hidden" id="tipo" name="tipo" value="{{ usuario[4] }}">
+                    </div>
+                    <button type="submit">Salvar Alterações</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal para alterar o tipo de usuário -->
+    <div id="tipoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Selecione o Tipo de Usuário</h2>
+            <button type="button" onclick="submitTipo('comum')">Comum</button>
+            <button type="button" onclick="submitTipo('admin')">Admin</button>
+            <button type="button" onclick="submitTipo('seguranca')">Segurança</button>
+        </div>
+    </div>
+</body>
+</html>

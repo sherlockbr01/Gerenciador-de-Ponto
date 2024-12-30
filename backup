@@ -1,0 +1,54 @@
+@app.route('/cadastro', methods=['GET', 'POST'])
+def cadastro():
+    errors = {}
+    token_administrador = "@ssjjti"
+    mostrar_token = False
+    tipo = 'comum'  # Inicializando a variável `tipo`
+
+    if request.method == 'POST':
+        nome = request.form.get('nome', '').strip().title()
+        matricula = request.form.get('matricula', '').strip().lower()
+        senha = request.form.get('senha', '').strip()
+        tipo = request.form.get('tipo', 'comum').strip()
+        token = request.form.get('token', '').strip()
+
+        mostrar_token = tipo == 'admin'
+
+        # Validação dos campos
+        if not nome:
+            errors['nome'] = 'O campo Nome é obrigatório.'
+        if not matricula:
+            errors['matricula'] = 'O campo Matrícula é obrigatório.'
+        if not senha:
+            errors['senha'] = 'O campo Senha é obrigatório.'
+        if tipo == 'admin' and token != token_administrador:
+            errors['token'] = 'Token de Administrador inválido.'
+
+        if not errors:
+            senha_hashed = generate_password_hash(senha)  # Hash da senha
+
+            conn = conectar_banco()
+            if conn:
+                c = conn.cursor()
+                try:
+                    c.execute("SELECT * FROM usuarios WHERE LOWER(matricula) = ?", (matricula,))
+                    if c.fetchone():
+                        errors['matricula'] = 'Matrícula já cadastrada!'
+                    else:
+                        c.execute("SELECT * FROM usuarios WHERE LOWER(nome) = ?", (nome.lower(),))
+                        if c.fetchone():
+                            errors['nome'] = 'Nome já cadastrado!'
+                        else:
+                            c.execute(
+                                "INSERT INTO usuarios (nome, matricula, senha, tipo, data_cadastro) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP)",
+                                (nome, matricula, senha_hashed, tipo))
+                            conn.commit()
+                            return redirect(url_for('login', success=f'Usuário {nome} cadastrado com sucesso como {tipo}!'))  # Redireciona após sucesso
+                except sqlite3.Error as e:
+                    flash(f'Erro ao cadastrar o usuário: {e}', 'error')
+                finally:
+                    conn.close()
+            else:
+                flash('Erro ao conectar ao banco de dados.', 'error')
+
+    return render_template('cadastro.html', errors=errors, mostrar_token=mostrar_token, tipo_selecionado=tipo)

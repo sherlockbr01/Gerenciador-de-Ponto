@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        header {
+            background-color: #004d99; /* Azul forte */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        header .button-container {
+            margin-top: 10px; /* Margem superior para separar do título */
+        }
+        header a.button {
+            background-color: #004d99;
+            color: white;
+            border: 2px solid #004d99;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        header a.button:hover {
+            background-color: white;
+            color: #004d99;
+        }
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #004d99;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 80%;
+            max-width: 350px;
+            padding: 10px;
+            margin: 5px auto;
+            border: 3px solid #004d99;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus {
+            border-color: #003366;
+            outline: none;
+        }
+        .form-group button {
+            width: 80%;
+            max-width: 350px;
+            padding: 10px;
+            background-color: #004d99;
+            color: white;
+            border: 3px solid #004d99;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 10px auto;
+            display: block;
+        }
+        .form-group button:hover {
+            background-color: #003366;
+        }
+        .form-group button:focus {
+            outline: none;
+            border-color: #003366;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            display: block; /* Certificar que a mensagem é exibida abaixo do campo */
+        }
+        .success {
+            color: green;
+            font-size: 14px;
+            margin-bottom: 15px;
+            margin-top: -20px;
+            text-align: center;
+        }
+        .form-group a {
+            color: #004d99;
+            text-decoration: none;
+        }
+        .form-group a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho com o texto específico e botão "Início" -->
+    <header>
+        <h2>SUBSEÇÃO DA JUSTIÇA FEDERAL DE JATAÍ</h2>
+        <div class="button-container">
+            <a href="{{ url_for('home') }}" class="button">Início</a>
+        </div>
+    </header>
+
+    <!-- Título Login agora com maior afastamento do cabeçalho -->
+    <h1>Login</h1>
+
+    <!-- Conteúdo do formulário -->
+    <div class="container">
+        <form method="POST" action="{{ url_for('login') }}">
+            {% if success %}
+                <div class="success" id="success-message">{{ success }}</div>
+            {% endif %}
+
+            <div class="form-group">
+                <label for="matricula">Matrícula:</label>
+                <input type="text" id="matricula" name="matricula" required>
+                {% if errors['matricula'] %}
+                    <span class="error">{{ errors['matricula'] }}</span>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
+                {% if errors['senha'] %}
+                    <span class="error">{{ errors['senha'] }}</span>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Entrar</button>
+            </div>
+        </form>
+
+        <div class="form-group">
+            <p>Ainda não tem uma conta? <a href="{{ url_for('cadastro') }}">Cadastre-se</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Função para esconder a mensagem de sucesso após 3 segundos
+        window.onload = function() {
+            var successMessage = document.getElementById('success-message');
+            if (successMessage) {
+                setTimeout(function() {
+                    successMessage.style.display = 'none';
+                }, 3000); // A mensagem desaparecerá após 3 segundos
+            }
+        };
+    </script>
+</body>
+</html>

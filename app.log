@@ -2222,3 +2222,169 @@
 2024-12-31 11:03:43,420 INFO: 127.0.0.1 - - [31/Dec/2024 11:03:43] "GET /dashboard_usuario_comum HTTP/1.1" 200 -
 2024-12-31 11:49:09,457 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
 2024-12-31 11:49:09,639 INFO:  * Restarting with stat
+2024-12-31 12:22:04,344 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-31 12:22:04,345 INFO: [33mPress CTRL+C to quit[0m
+2024-12-31 12:22:04,348 INFO:  * Restarting with stat
+2024-12-31 12:22:05,169 WARNING:  * Debugger is active!
+2024-12-31 12:22:05,173 INFO:  * Debugger PIN: 166-491-964
+2024-12-31 12:22:09,115 INFO: 127.0.0.1 - - [31/Dec/2024 12:22:09] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-12-31 12:22:09,168 INFO: 127.0.0.1 - - [31/Dec/2024 12:22:09] "GET /login HTTP/1.1" 200 -
+2024-12-31 12:22:13,886 INFO: 127.0.0.1 - - [31/Dec/2024 12:22:13] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-31 12:22:13,905 INFO: 127.0.0.1 - - [31/Dec/2024 12:22:13] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2024-12-31 12:22:13,982 INFO: 127.0.0.1 - - [31/Dec/2024 12:22:13] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2024-12-31 12:22:15,675 INFO: 127.0.0.1 - - [31/Dec/2024 12:22:15] "GET /baixar_backup HTTP/1.1" 200 -
+2024-12-31 12:30:27,707 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\backup.py', reloading
+2024-12-31 12:30:27,787 INFO:  * Restarting with stat
+2024-12-31 12:30:28,595 WARNING:  * Debugger is active!
+2024-12-31 12:30:28,597 INFO:  * Debugger PIN: 166-491-964
+2024-12-31 12:32:33,516 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\backup.py', reloading
+2024-12-31 12:32:33,800 INFO:  * Restarting with stat
+2024-12-31 12:32:34,719 WARNING:  * Debugger is active!
+2024-12-31 12:32:34,722 INFO:  * Debugger PIN: 166-491-964
+2024-12-31 12:33:28,997 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2024-12-31 12:33:29,102 INFO:  * Restarting with stat
+2024-12-31 12:33:30,195 WARNING:  * Debugger is active!
+2024-12-31 12:33:30,197 INFO:  * Debugger PIN: 166-491-964
+2024-12-31 12:33:30,355 INFO: 127.0.0.1 - - [31/Dec/2024 12:33:30] "[35m[1mGET /dashboard_usuario_admin HTTP/1.1[0m" 500 -
+2024-12-31 12:33:30,469 INFO: 127.0.0.1 - - [31/Dec/2024 12:33:30] "[36mGET /dashboard_usuario_admin?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-31 12:33:30,490 INFO: 127.0.0.1 - - [31/Dec/2024 12:33:30] "[36mGET /dashboard_usuario_admin?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-31 12:33:30,555 INFO: 127.0.0.1 - - [31/Dec/2024 12:33:30] "GET /dashboard_usuario_admin?__debugger__=yes&cmd=resource&f=console.png&s=qEiw0TURJdhBnvi11lHR HTTP/1.1" 200 -
+2024-12-31 12:33:30,605 INFO: 127.0.0.1 - - [31/Dec/2024 12:33:30] "[36mGET /dashboard_usuario_admin?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-12-31 12:34:48,632 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2024-12-31 12:34:48,890 INFO:  * Restarting with stat
+2024-12-31 12:34:50,120 WARNING:  * Debugger is active!
+2024-12-31 12:34:50,122 INFO:  * Debugger PIN: 166-491-964
+2024-12-31 12:36:27,147 INFO: 127.0.0.1 - - [31/Dec/2024 12:36:27] "[35m[1mGET /dashboard_usuario_admin HTTP/1.1[0m" 500 -
+2024-12-31 12:36:27,238 INFO: 127.0.0.1 - - [31/Dec/2024 12:36:27] "[36mGET /dashboard_usuario_admin?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-31 12:36:27,245 INFO: 127.0.0.1 - - [31/Dec/2024 12:36:27] "[36mGET /dashboard_usuario_admin?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-31 12:36:27,287 INFO: 127.0.0.1 - - [31/Dec/2024 12:36:27] "GET /dashboard_usuario_admin?__debugger__=yes&cmd=resource&f=console.png&s=5LShqsqqatRfNaOenwdL HTTP/1.1" 200 -
+2024-12-31 12:36:27,308 INFO: 127.0.0.1 - - [31/Dec/2024 12:36:27] "[36mGET /dashboard_usuario_admin?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-12-31 12:37:06,023 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2024-12-31 12:37:06,473 INFO:  * Restarting with stat
+2024-12-31 12:37:07,979 WARNING:  * Debugger is active!
+2024-12-31 12:37:07,981 INFO:  * Debugger PIN: 166-491-964
+2024-12-31 12:37:08,054 INFO: 127.0.0.1 - - [31/Dec/2024 12:37:08] "[35m[1mGET /dashboard_usuario_admin HTTP/1.1[0m" 500 -
+2024-12-31 12:37:08,128 INFO: 127.0.0.1 - - [31/Dec/2024 12:37:08] "[36mGET /dashboard_usuario_admin?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-31 12:37:08,150 INFO: 127.0.0.1 - - [31/Dec/2024 12:37:08] "[36mGET /dashboard_usuario_admin?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-31 12:37:08,168 INFO: 127.0.0.1 - - [31/Dec/2024 12:37:08] "GET /dashboard_usuario_admin?__debugger__=yes&cmd=resource&f=console.png&s=04FFCDEfTbQgYfnlUOcO HTTP/1.1" 200 -
+2024-12-31 12:37:08,197 INFO: 127.0.0.1 - - [31/Dec/2024 12:37:08] "[36mGET /dashboard_usuario_admin?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-12-31 12:37:10,571 INFO: 127.0.0.1 - - [31/Dec/2024 12:37:10] "[35m[1mGET /dashboard_usuario_admin HTTP/1.1[0m" 500 -
+2024-12-31 12:37:10,584 INFO: 127.0.0.1 - - [31/Dec/2024 12:37:10] "[36mGET /dashboard_usuario_admin?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-31 12:37:10,586 INFO: 127.0.0.1 - - [31/Dec/2024 12:37:10] "[36mGET /dashboard_usuario_admin?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-31 12:37:10,592 INFO: 127.0.0.1 - - [31/Dec/2024 12:37:10] "[36mGET /dashboard_usuario_admin?__debugger__=yes&cmd=resource&f=console.png&s=04FFCDEfTbQgYfnlUOcO HTTP/1.1[0m" 304 -
+2024-12-31 12:37:10,633 INFO: 127.0.0.1 - - [31/Dec/2024 12:37:10] "[36mGET /dashboard_usuario_admin?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-12-31 12:38:11,967 INFO: 127.0.0.1 - - [31/Dec/2024 12:38:11] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2024-12-31 12:38:12,018 INFO: 127.0.0.1 - - [31/Dec/2024 12:38:12] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2024-12-31 12:38:13,834 INFO: 127.0.0.1 - - [31/Dec/2024 12:38:13] "[35m[1mGET /baixar_e_enviar_backup HTTP/1.1[0m" 500 -
+2024-12-31 12:38:13,848 INFO: 127.0.0.1 - - [31/Dec/2024 12:38:13] "GET /baixar_e_enviar_backup?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2024-12-31 12:38:13,850 INFO: 127.0.0.1 - - [31/Dec/2024 12:38:13] "GET /baixar_e_enviar_backup?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2024-12-31 12:38:13,862 INFO: 127.0.0.1 - - [31/Dec/2024 12:38:13] "GET /baixar_e_enviar_backup?__debugger__=yes&cmd=resource&f=console.png&s=04FFCDEfTbQgYfnlUOcO HTTP/1.1" 200 -
+2024-12-31 12:38:13,891 INFO: 127.0.0.1 - - [31/Dec/2024 12:38:13] "GET /baixar_e_enviar_backup?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2024-12-31 12:40:39,555 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2024-12-31 12:40:39,637 INFO:  * Restarting with stat
+2024-12-31 12:40:40,432 WARNING:  * Debugger is active!
+2024-12-31 12:40:40,435 INFO:  * Debugger PIN: 166-491-964
+2024-12-31 12:41:24,840 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\backup.py', reloading
+2024-12-31 12:41:24,938 INFO:  * Restarting with stat
+2024-12-31 12:41:25,839 WARNING:  * Debugger is active!
+2024-12-31 12:41:25,842 INFO:  * Debugger PIN: 166-491-964
+2024-12-31 12:42:49,747 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\backup.py', reloading
+2024-12-31 12:42:49,808 INFO:  * Restarting with stat
+2024-12-31 12:42:50,632 WARNING:  * Debugger is active!
+2024-12-31 12:42:50,634 INFO:  * Debugger PIN: 166-491-964
+2024-12-31 12:44:45,418 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2024-12-31 12:44:45,514 INFO:  * Restarting with stat
+2024-12-31 12:44:46,334 WARNING:  * Debugger is active!
+2024-12-31 12:44:46,336 INFO:  * Debugger PIN: 166-491-964
+2024-12-31 12:45:17,149 INFO: 127.0.0.1 - - [31/Dec/2024 12:45:17] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2024-12-31 12:45:17,174 INFO: 127.0.0.1 - - [31/Dec/2024 12:45:17] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2024-12-31 12:45:22,324 INFO: 127.0.0.1 - - [31/Dec/2024 12:45:22] "[35m[1mGET /baixar_e_enviar_backup HTTP/1.1[0m" 500 -
+2024-12-31 12:45:22,427 INFO: 127.0.0.1 - - [31/Dec/2024 12:45:22] "[36mGET /baixar_e_enviar_backup?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-12-31 12:45:22,432 INFO: 127.0.0.1 - - [31/Dec/2024 12:45:22] "[36mGET /baixar_e_enviar_backup?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-12-31 12:45:22,455 INFO: 127.0.0.1 - - [31/Dec/2024 12:45:22] "GET /baixar_e_enviar_backup?__debugger__=yes&cmd=resource&f=console.png&s=VaDJF1juXxbAJdJNJ6rm HTTP/1.1" 200 -
+2024-12-31 12:49:46,318 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2024-12-31 12:49:46,725 INFO:  * Restarting with stat
+2024-12-31 12:49:48,073 WARNING:  * Debugger is active!
+2024-12-31 12:49:48,075 INFO:  * Debugger PIN: 166-491-964
+2024-12-31 12:49:49,699 INFO: 127.0.0.1 - - [31/Dec/2024 12:49:49] "GET /baixar_e_enviar_backup HTTP/1.1" 200 -
+2024-12-31 12:51:35,642 INFO: 127.0.0.1 - - [31/Dec/2024 12:51:35] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2024-12-31 12:51:35,720 INFO: 127.0.0.1 - - [31/Dec/2024 12:51:35] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2024-12-31 12:51:36,042 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2024-12-31 12:51:36,206 INFO:  * Restarting with stat
+2024-12-31 12:51:37,874 WARNING:  * Debugger is active!
+2024-12-31 12:51:37,877 INFO:  * Debugger PIN: 166-491-964
+2024-12-31 12:51:41,776 INFO: 127.0.0.1 - - [31/Dec/2024 12:51:41] "GET /baixar_e_enviar_backup HTTP/1.1" 200 -
+2024-12-31 12:53:44,958 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2024-12-31 12:53:45,080 INFO:  * Restarting with stat
+2024-12-31 12:53:46,210 WARNING:  * Debugger is active!
+2024-12-31 12:53:46,213 INFO:  * Debugger PIN: 166-491-964
+2024-12-31 12:55:03,922 INFO: 127.0.0.1 - - [31/Dec/2024 12:55:03] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2024-12-31 12:55:03,965 INFO: 127.0.0.1 - - [31/Dec/2024 12:55:03] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2024-12-31 12:57:13,691 INFO: 127.0.0.1 - - [31/Dec/2024 12:57:13] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2024-12-31 12:57:13,720 INFO: 127.0.0.1 - - [31/Dec/2024 12:57:13] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2024-12-31 12:57:17,476 INFO: 127.0.0.1 - - [31/Dec/2024 12:57:17] "[33mGET /gerar_backup HTTP/1.1[0m" 404 -
+2024-12-31 12:59:15,035 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2024-12-31 12:59:15,420 INFO:  * Restarting with stat
+2024-12-31 12:59:17,044 WARNING:  * Debugger is active!
+2024-12-31 12:59:17,049 INFO:  * Debugger PIN: 166-491-964
+2024-12-31 13:00:00,456 INFO: 127.0.0.1 - - [31/Dec/2024 13:00:00] "[33mGET /gerar_backup HTTP/1.1[0m" 404 -
+2024-12-31 13:00:03,551 INFO: 127.0.0.1 - - [31/Dec/2024 13:00:03] "[33mPOST /enviar_backup_email HTTP/1.1[0m" 404 -
+2024-12-31 13:02:03,805 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2024-12-31 13:02:03,872 INFO:  * Restarting with stat
+2024-12-31 13:02:04,694 WARNING:  * Debugger is active!
+2024-12-31 13:02:04,697 INFO:  * Debugger PIN: 166-491-964
+2024-12-31 13:02:37,061 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2024-12-31 13:02:37,150 INFO:  * Restarting with stat
+2024-12-31 13:02:38,005 WARNING:  * Debugger is active!
+2024-12-31 13:02:38,008 INFO:  * Debugger PIN: 166-491-964
+2024-12-31 13:02:46,043 INFO: 127.0.0.1 - - [31/Dec/2024 13:02:46] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2024-12-31 13:02:46,071 INFO: 127.0.0.1 - - [31/Dec/2024 13:02:46] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2024-12-31 13:02:47,417 INFO: 127.0.0.1 - - [31/Dec/2024 13:02:47] "GET /baixar_e_enviar_backup HTTP/1.1" 200 -
+2024-12-31 13:07:21,048 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2024-12-31 13:07:21,282 INFO:  * Restarting with stat
+2024-12-31 13:07:23,103 WARNING:  * Debugger is active!
+2024-12-31 13:07:23,106 INFO:  * Debugger PIN: 166-491-964
+2024-12-31 13:07:31,968 INFO: 127.0.0.1 - - [31/Dec/2024 13:07:31] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2024-12-31 13:07:31,999 INFO: 127.0.0.1 - - [31/Dec/2024 13:07:31] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2024-12-31 13:07:33,616 INFO: 127.0.0.1 - - [31/Dec/2024 13:07:33] "GET /baixar_e_enviar_backup HTTP/1.1" 200 -
+2024-12-31 13:10:24,648 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2024-12-31 13:10:24,819 INFO:  * Restarting with stat
+2024-12-31 13:11:11,570 INFO:  * Restarting with stat
+2024-12-31 13:24:46,043 - WARNING -  * Debugger is active!
+2024-12-31 13:24:46,055 - INFO -  * Debugger PIN: 166-491-964
+2024-12-31 13:25:30,498 - INFO -  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\send_email.py', reloading
+2024-12-31 13:25:31,393 - WARNING -  * Debugger is active!
+2024-12-31 13:25:31,395 - INFO -  * Debugger PIN: 166-491-964
+2024-12-31 13:25:34,232 - DEBUG - Email de teste enviado com sucesso!
+2024-12-31 13:27:06,791 - INFO -  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2024-12-31 13:27:07,748 - WARNING -  * Debugger is active!
+2024-12-31 13:27:07,752 - INFO -  * Debugger PIN: 166-491-964
+2024-12-31 13:27:08,925 - INFO - 127.0.0.1 - - [31/Dec/2024 13:27:08] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2024-12-31 13:27:08,953 - INFO - 127.0.0.1 - - [31/Dec/2024 13:27:08] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2024-12-31 13:27:10,777 - INFO - 127.0.0.1 - - [31/Dec/2024 13:27:10] "GET /baixar_e_enviar_backup HTTP/1.1" 200 -
+2024-12-31 13:27:43,442 - INFO - 127.0.0.1 - - [31/Dec/2024 13:27:43] "GET /baixar_e_enviar_backup HTTP/1.1" 200 -
+2024-12-31 13:28:59,495 - INFO -  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2024-12-31 13:29:00,603 - WARNING -  * Debugger is active!
+2024-12-31 13:29:00,606 - INFO -  * Debugger PIN: 166-491-964
+2024-12-31 13:29:00,658 - INFO - 127.0.0.1 - - [31/Dec/2024 13:29:00] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2024-12-31 13:29:00,685 - INFO - 127.0.0.1 - - [31/Dec/2024 13:29:00] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2024-12-31 13:29:02,491 - INFO - 127.0.0.1 - - [31/Dec/2024 13:29:02] "GET /baixar_e_enviar_backup HTTP/1.1" 200 -
+2024-12-31 13:30:54,316 - INFO -  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2024-12-31 13:30:55,252 - WARNING -  * Debugger is active!
+2024-12-31 13:30:55,255 - INFO -  * Debugger PIN: 166-491-964
+2024-12-31 13:31:41,313 - INFO -  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2024-12-31 13:31:43,402 - WARNING -  * Debugger is active!
+2024-12-31 13:31:43,405 - INFO -  * Debugger PIN: 166-491-964
+2024-12-31 13:33:41,731 - INFO -  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\backup.py', reloading
+2024-12-31 13:33:44,432 - WARNING -  * Debugger is active!
+2024-12-31 13:33:44,435 - INFO -  * Debugger PIN: 166-491-964
+2024-12-31 13:33:44,488 - INFO - 127.0.0.1 - - [31/Dec/2024 13:33:44] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2024-12-31 13:33:44,540 - INFO - 127.0.0.1 - - [31/Dec/2024 13:33:44] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2024-12-31 13:33:49,381 - DEBUG - Arquivo C:\Users\jti30\PycharmProjects\PythonProject2\temp_backups\ponto_backup_20241231_133349.zip criado com sucesso!
+2024-12-31 13:33:49,428 - DEBUG - Arquivo C:\Users\jti30\PycharmProjects\PythonProject2\temp_backups\ponto_backup_20241231_133349.zip lido com sucesso!
+2024-12-31 13:33:49,428 - DEBUG - Arquivo anexado com sucesso!
+2024-12-31 13:33:50,964 - DEBUG - Conexão com o servidor SMTP iniciada.
+2024-12-31 13:33:51,748 - DEBUG - Logado no servidor SMTP.
+2024-12-31 13:33:55,547 - DEBUG - Email enviado com sucesso!
+2024-12-31 13:33:55,549 - INFO - 127.0.0.1 - - [31/Dec/2024 13:33:55] "GET /baixar_e_enviar_backup HTTP/1.1" 200 -

@@ -1,5 +1,6 @@
 from io import BytesIO
 import barcode
+import pytz
 from barcode import Code128
 from barcode.writer import ImageWriter
 from flask import Flask, request, render_template, redirect, url_for, flash, session, jsonify, send_file
@@ -19,11 +20,12 @@ from reportlab.lib import colors
 app = Flask(__name__)
 app.secret_key = '@ssjjti'  # Chave secreta para usar sessões
 
-# Comentar a linha de localidade
-# locale.setlocale(locale.LC_TIME, 'pt_BR.utf8')
 
-# Ou usar uma localidade alternativa
+# locale.setlocale(locale.LC_TIME, 'pt_BR.utf8')
 locale.setlocale(locale.LC_TIME, 'en_US.utf8')
+
+# Definir o fuso horário de Brasília
+brasilia_tz = pytz.timezone('America/Sao_Paulo')
 
 
 def conectar_banco():
@@ -588,8 +590,10 @@ def cadastrar_ponto():
         return redirect(url_for('login'))
 
     if request.method == 'POST':
-        data_atual = datetime.now().strftime("%Y-%m-%d")
-        hora_atual = datetime.now().strftime("%H:%M:%S")
+        # Captura a data atual ajustada para o horário de Brasília
+        data_atual = datetime.now(brasilia_tz).strftime("%Y-%m-%d")
+        hora_atual = datetime.now(brasilia_tz).strftime("%H:%M:%S")
+
         matricula = request.json.get('matricula')
 
         if not matricula:
@@ -634,7 +638,8 @@ def cadastrar_ponto():
     conn = conectar_banco()
     c = conn.cursor()
 
-    data_atual = datetime.now().strftime("%Y-%m-%d")
+    # Captura a data atual ajustada para o horário de Brasília
+    data_atual = datetime.now(brasilia_tz).strftime("%Y-%m-%d")
 
     # Calcular o total de pontos para paginar corretamente
     c.execute("SELECT COUNT(*) FROM pontos WHERE data = ?", (data_atual,))
@@ -658,6 +663,7 @@ def cadastrar_ponto():
     pontos_formatados = []
     for ponto in pontos:
         data, hora_entrada, hora_saida, hora_entrada_2, hora_saida_2, nome = ponto
+        # Formatar a data
         data_formatada = datetime.strptime(data, "%Y-%m-%d").strftime("%d/%m/%y")
         nome_abreviado = ' '.join(nome.split()[:2])
         pontos_formatados.append(
@@ -665,8 +671,6 @@ def cadastrar_ponto():
 
     total_pages = (total_pontos + limit - 1) // limit
     return render_template('cadastrar_ponto.html', pontos=pontos_formatados, total_pages=total_pages, current_page=page)
-
-
 @app.route('/pontos', methods=['GET'])
 def buscar_pontos():
     pagina = int(request.args.get('pagina', 1))

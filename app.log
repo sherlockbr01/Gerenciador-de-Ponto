@@ -2176,3 +2176,37 @@
 2024-12-30 16:07:20,522 INFO:  * Debugger PIN: 166-491-964
 2024-12-30 16:07:20,911 INFO: 127.0.0.1 - - [30/Dec/2024 16:07:20] "GET /relatorios HTTP/1.1" 200 -
 2024-12-30 16:07:24,959 INFO: 127.0.0.1 - - [30/Dec/2024 16:07:24] "POST /relatorios HTTP/1.1" 200 -
+2024-12-30 16:15:46,050 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-30 16:15:46,050 INFO: [33mPress CTRL+C to quit[0m
+2024-12-30 16:15:46,053 INFO:  * Restarting with stat
+2024-12-30 16:15:46,807 WARNING:  * Debugger is active!
+2024-12-30 16:15:46,810 INFO:  * Debugger PIN: 166-491-964
+2024-12-30 16:39:32,368 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-30 16:39:32,368 INFO: [33mPress CTRL+C to quit[0m
+2024-12-30 16:39:32,372 INFO:  * Restarting with stat
+2024-12-30 16:39:33,174 WARNING:  * Debugger is active!
+2024-12-30 16:39:33,179 INFO:  * Debugger PIN: 166-491-964
+2024-12-30 16:39:37,051 INFO: 127.0.0.1 - - [30/Dec/2024 16:39:37] "GET /login HTTP/1.1" 200 -
+2024-12-30 16:39:45,761 INFO: 127.0.0.1 - - [30/Dec/2024 16:39:45] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-30 16:39:45,774 INFO: 127.0.0.1 - - [30/Dec/2024 16:39:45] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2024-12-30 16:39:45,837 INFO: 127.0.0.1 - - [30/Dec/2024 16:39:45] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2024-12-30 16:39:48,862 INFO: 127.0.0.1 - - [30/Dec/2024 16:39:48] "GET /usuarios HTTP/1.1" 200 -
+2024-12-31 09:42:08,885 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-31 09:42:08,886 INFO: [33mPress CTRL+C to quit[0m
+2024-12-31 09:42:08,888 INFO:  * Restarting with stat
+2024-12-31 09:42:09,682 WARNING:  * Debugger is active!
+2024-12-31 09:42:09,686 INFO:  * Debugger PIN: 166-491-964
+2024-12-31 09:42:13,213 INFO: 127.0.0.1 - - [31/Dec/2024 09:42:13] "GET /login HTTP/1.1" 200 -
+2024-12-31 09:42:13,298 INFO: 127.0.0.1 - - [31/Dec/2024 09:42:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-12-31 09:42:18,366 INFO: 127.0.0.1 - - [31/Dec/2024 09:42:18] "POST /login HTTP/1.1" 200 -
+2024-12-31 09:42:23,012 INFO: 127.0.0.1 - - [31/Dec/2024 09:42:23] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-31 09:42:23,056 INFO: 127.0.0.1 - - [31/Dec/2024 09:42:23] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2024-12-31 09:42:23,436 INFO: 127.0.0.1 - - [31/Dec/2024 09:42:23] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2024-12-31 09:42:24,652 INFO: 127.0.0.1 - - [31/Dec/2024 09:42:24] "GET /cadastrar_ponto HTTP/1.1" 200 -
+2024-12-31 09:42:24,693 INFO: 127.0.0.1 - - [31/Dec/2024 09:42:24] "GET /pontos?pagina=1 HTTP/1.1" 200 -
+2024-12-31 09:42:26,382 INFO: 127.0.0.1 - - [31/Dec/2024 09:42:26] "GET /listar_usuarios?_type=query HTTP/1.1" 200 -
+2024-12-31 09:42:27,762 INFO: 127.0.0.1 - - [31/Dec/2024 09:42:27] "POST /cadastrar_ponto HTTP/1.1" 200 -
+2024-12-31 09:42:27,773 INFO: 127.0.0.1 - - [31/Dec/2024 09:42:27] "GET /pontos?pagina=1 HTTP/1.1" 200 -

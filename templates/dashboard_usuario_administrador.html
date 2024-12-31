@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard do Administrador</title>
     <style>
         body {
@@ -19,7 +19,7 @@
         header {
             background-color: #004d99; /* Azul forte */
             color: white;
-            padding: 10px 0; /* Diminuir o padding para ajustar o cabeçalho */
+            padding: 10px 0;
             text-align: center;
         }
         nav ul {
@@ -60,24 +60,42 @@
         }
         .charts-container {
             display: flex;
-            justify-content: space-between; /* Para alinhar os gráficos lado a lado */
+            justify-content: space-between;
             flex-wrap: wrap;
             margin-top: 20px;
         }
         .chart-container {
-            width: 45%; /* Ajusta a largura para caberem lado a lado */
-            height: 300px; /* Tamanho fixo para os gráficos */
+            width: 45%;
+            height: 300px;
             padding: 10px;
+            margin-bottom: 20px;
         }
         .chart-container canvas {
-            width: 100%; /* Garantir que o canvas ocupe toda a largura do container */
-            height: 100%; /* Ajusta a altura para preencher o container */
+            width: 100%;
+            height: 100%;
         }
         h1, h2 {
             margin: 0;
         }
         .chart-container h3 {
-            margin-bottom: 15px; /* Espaço entre o título e o gráfico */
+            margin-bottom: 15px;
+        }
+        @media (max-width: 768px) {
+            .charts-container {
+                flex-direction: column;
+            }
+            .chart-container {
+                width: 100%;
+            }
+        }
+        /* Estilo do loader de carregamento */
+        .loading {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 16px;
+            display: none;
+            padding: 10px;
+            border-radius: 5px;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -101,6 +119,9 @@
                     <a href="{{ url_for('cadastrar_ponto') }}" class="button">Inserir Ponto</a>
                     <a href="{{ url_for('usuarios') }}" class="button">Usuários</a>
                     <a href="{{ url_for('relatorios') }}" class="button">Relatórios</a>
+                    <!-- Botão de Backup com indicação de carregamento -->
+                    <a href="{{ url_for('baixar_e_enviar_backup') }}" class="button" id="backupButton">Baixar e Enviar Backup</a>
+                    <div id="loading" class="loading">Carregando...</div>
                 </div>
                 <div class="charts-container">
                     <div class="chart-container">
@@ -117,6 +138,7 @@
     </main>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Carregamento dos gráficos
             console.log("Gráficos sendo carregados...");
 
             var ctxUser = document.getElementById('userChart').getContext('2d');
@@ -131,7 +153,7 @@
                 },
                 options: {
                     responsive: true,
-                    maintainAspectRatio: false, // Permite que o gráfico se ajuste melhor
+                    maintainAspectRatio: false,
                     plugins: {
                         legend: {
                             position: 'top',
@@ -154,13 +176,11 @@
                 }
             });
 
-            // Adicionar o novo gráfico para os pontos inseridos hoje
             var ctxPoints = document.getElementById('pointsChart').getContext('2d');
             fetch('{{ url_for("contar_pontos_totais") }}')
                 .then(response => response.json())
                 .then(data => {
                     console.log("Dados de pontos inseridos hoje:", data);
-
                     var pointsChart = new Chart(ctxPoints, {
                         type: 'bar',
                         data: {
@@ -193,7 +213,26 @@
                         }
                     });
                 })
-                .catch(error => console.error('Erro ao buscar pontos inseridos hoje:', error));
+                .catch(error => {
+                    console.error('Erro ao buscar pontos inseridos hoje:', error);
+                    alert('Erro ao carregar os dados de pontos.');
+                });
+        });
+
+        // Função para exibir carregamento e alterar texto do botão de backup
+        document.getElementById('backupButton').addEventListener('click', function() {
+            var backupButton = document.getElementById('backupButton');
+            var loadingDiv = document.getElementById('loading');
+            backupButton.style.display = 'none';  // Esconde o botão durante o carregamento
+            loadingDiv.style.display = 'block';   // Exibe o texto de carregamento
+
+            // Após o processo de backup ser completado, você pode reiniciar o botão
+            // Aqui você poderia aguardar a resposta da API e restaurar o botão.
+            setTimeout(function() {  // Simulação de tempo de carregamento
+                loadingDiv.style.display = 'none';
+                backupButton.style.display = 'inline-block'; // Mostra novamente o botão
+                alert('Backup enviado com sucesso!'); // Mensagem de sucesso
+            }, 3000); // Simulando 3 segundos de carregamento
         });
     </script>
 </body>

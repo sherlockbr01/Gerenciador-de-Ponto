@@ -10,16 +10,24 @@ import sqlite3
 import os
 import locale
 import logging
+import zipfile
 from werkzeug.security import generate_password_hash, check_password_hash
 from reportlab.lib.pagesizes import A4, portrait
-from reportlab.platypus import BaseDocTemplate, PageTemplate, Frame, Paragraph, Table, TableStyle, Spacer, SimpleDocTemplate, Image
+from reportlab.platypus import BaseDocTemplate, PageTemplate, Frame, Paragraph, Table, TableStyle, Spacer, \
+    SimpleDocTemplate, Image
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import cm, inch
 from reportlab.lib import colors
+import shutil
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email.mime.text import MIMEText
+from email import encoders
+import tempfile
 
 app = Flask(__name__)
 app.secret_key = '@ssjjti'  # Chave secreta para usar sessões
-
 
 # locale.setlocale(locale.LC_TIME, 'pt_BR.utf8')
 locale.setlocale(locale.LC_TIME, 'en_US.utf8')
@@ -27,10 +35,17 @@ locale.setlocale(locale.LC_TIME, 'en_US.utf8')
 # Definir o fuso horário de Brasília
 brasilia_tz = pytz.timezone('America/Sao_Paulo')
 
+# Configurar logging detalhado para salvar no arquivo app.log e exibir no console
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s', handlers=[
+    logging.FileHandler("app.log"),
+    logging.StreamHandler()
+])
+
 
 def conectar_banco():
     conn = sqlite3.connect('ponto.db')
     return conn
+
 
 def inicializa_banco():
     conn = conectar_banco()
@@ -54,8 +69,89 @@ def inicializa_banco():
     conn.commit()
     conn.close()
 
+
 # Inicializar o banco de dados ao iniciar o aplicativo
 inicializa_banco()
+
+
+def send_backup_email(zip_path):
+    sender_email = "ssjjatai@gmail.com"
+    receiver_email = "ssjjatai@gmail.com"  # Enviar para o mesmo e-mail
+    password = "yneielcxjwrmqigu"  # Senha de aplicativo gerada
+
+    msg = MIMEMultipart()
+    msg['From'] = sender_email
+    msg['To'] = receiver_email
+    msg['Subject'] = f"Backup do Banco de Dados - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+
+    part = MIMEBase('application', 'octet-stream')
+    try:
+        with open(zip_path, 'rb') as file:
+            part.set_payload(file.read())
+            logging.debug(f"Arquivo {zip_path} lido com sucesso!")
+
+        encoders.encode_base64(part)
+        part.add_header('Content-Disposition', f"attachment; filename={os.path.basename(zip_path)}")
+        msg.attach(part)
+        logging.debug("Arquivo anexado com sucesso!")
+
+        try:
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.starttls()
+            logging.debug("Conexão com o servidor SMTP iniciada.")
+            server.login(sender_email, password)
+            logging.debug("Logado no servidor SMTP.")
+            server.sendmail(sender_email, receiver_email, msg.as_string())
+            server.quit()
+            logging.debug("Email enviado com sucesso!")
+            print("Backup enviado com sucesso!")
+        except smtplib.SMTPException as e:
+            logging.error(f"Erro no envio do e-mail: {e}")
+            raise
+
+    except Exception as e:
+        logging.error(f"Erro ao anexar o arquivo de backup: {e}")
+        raise
+
+
+@app.route('/baixar_e_enviar_backup', methods=['GET'])
+def baixar_e_enviar_backup():
+    """Rota para gerar e enviar o backup do banco de dados por e-mail."""
+    db_path = os.path.join(os.getcwd(), 'ponto.db')
+
+    if os.path.exists(db_path):
+        # Gerar o nome do arquivo de backup com base na data e hora atual
+        backup_filename = f'ponto_backup_{datetime.now().strftime("%Y%m%d_%H%M%S")}.db'
+        zip_filename = f'ponto_backup_{datetime.now().strftime("%Y%m%d_%H%M%S")}.zip'
+        temp_dir = os.path.join(os.getcwd(), 'temp_backups')  # Caminho customizado
+        if not os.path.exists(temp_dir):
+            os.makedirs(temp_dir)  # Garante que o diretório exista
+        backup_path = os.path.join(temp_dir, backup_filename)
+        zip_path = os.path.join(temp_dir, zip_filename)
+
+        # Fazendo o backup do banco de dados
+        shutil.copy(db_path, backup_path)
+
+        # Compactando o arquivo .db em um arquivo .zip
+        with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+            zipf.write(backup_path, os.path.basename(backup_path))
+        logging.debug(f"Arquivo {zip_path} criado com sucesso!")
+
+        # Enviando o arquivo .zip por e-mail
+        send_backup_email(zip_path)
+
+        # Enviar o arquivo .zip para o usuário fazer o download
+        return send_file(zip_path, as_attachment=True, download_name=zip_filename,
+                         mimetype='application/zip')
+
+    else:
+        flash("Erro: o arquivo ponto.db não foi encontrado.", 'error')
+        return redirect(url_for('dashboard_usuario_administrador'))
+
+
+# Chame a função de envio de e-mail de backup se necessário
+# send_backup_email('path/to/your/backup.zip')
+
 
 def verificar_permissao(permissoes):
     def decorator(f):

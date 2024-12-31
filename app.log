@@ -2210,3 +2210,13 @@
 2024-12-31 09:42:26,382 INFO: 127.0.0.1 - - [31/Dec/2024 09:42:26] "GET /listar_usuarios?_type=query HTTP/1.1" 200 -
 2024-12-31 09:42:27,762 INFO: 127.0.0.1 - - [31/Dec/2024 09:42:27] "POST /cadastrar_ponto HTTP/1.1" 200 -
 2024-12-31 09:42:27,773 INFO: 127.0.0.1 - - [31/Dec/2024 09:42:27] "GET /pontos?pagina=1 HTTP/1.1" 200 -
+2024-12-31 10:02:19,759 INFO: 127.0.0.1 - - [31/Dec/2024 10:02:19] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-12-31 10:02:19,770 INFO: 127.0.0.1 - - [31/Dec/2024 10:02:19] "GET /login HTTP/1.1" 200 -
+2024-12-31 10:02:24,256 INFO: 127.0.0.1 - - [31/Dec/2024 10:02:24] "POST /login HTTP/1.1" 200 -
+2024-12-31 10:02:28,692 INFO: 127.0.0.1 - - [31/Dec/2024 10:02:28] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-31 10:02:28,729 INFO: 127.0.0.1 - - [31/Dec/2024 10:02:28] "GET /dashboard_usuario_comum HTTP/1.1" 200 -
+2024-12-31 10:06:43,978 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2024-12-31 10:06:44,236 INFO:  * Restarting with stat
+2024-12-31 10:06:45,315 WARNING:  * Debugger is active!
+2024-12-31 10:06:45,319 INFO:  * Debugger PIN: 166-491-964
+2024-12-31 11:03:43,420 INFO: 127.0.0.1 - - [31/Dec/2024 11:03:43] "GET /dashboard_usuario_comum HTTP/1.1" 200 -

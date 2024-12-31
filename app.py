@@ -547,22 +547,27 @@ def dashboard_usuario_comum():
     for ponto in pontos:
         data_formatada = datetime.strptime(ponto[0], "%Y-%m-%d").strftime("%d/%m/%Y")
 
+        # Substituir None por string vazia para as horas
+        hora_entrada = ponto[1] if ponto[1] is not None else ""
+        hora_saida = ponto[2] if ponto[2] is not None else ""
+        hora_entrada_2 = ponto[3] if ponto[3] is not None else ""
+        hora_saida_2 = ponto[4] if ponto[4] is not None else ""
+
         # Calcular horas trabalhadas
-        horas_trabalhadas = calcular_horas_trabalhadas(
-            ponto[1], ponto[2], ponto[3], ponto[4]
-        )
+        horas_trabalhadas = calcular_horas_trabalhadas(hora_entrada, hora_saida, hora_entrada_2, hora_saida_2)
 
         pontos_formatados.append({
             'data': data_formatada,
-            'hora_entrada': ponto[1],
-            'hora_saida': ponto[2],
-            'hora_entrada_2': ponto[3],
-            'hora_saida_2': ponto[4],
+            'hora_entrada': hora_entrada,
+            'hora_saida': hora_saida,
+            'hora_entrada_2': hora_entrada_2,
+            'hora_saida_2': hora_saida_2,
             'horas_trabalhadas': horas_trabalhadas
         })
 
     return render_template('dashboard_usuario_comum.html', usuario_nome=usuario_nome, matricula=matricula,
                            pontos=pontos_formatados)
+
 
 
 def calcular_horas_trabalhadas(hora_entrada, hora_saida, hora_entrada_2, hora_saida_2):

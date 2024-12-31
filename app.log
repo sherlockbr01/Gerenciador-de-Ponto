@@ -2220,3 +2220,5 @@
 2024-12-31 10:06:45,315 WARNING:  * Debugger is active!
 2024-12-31 10:06:45,319 INFO:  * Debugger PIN: 166-491-964
 2024-12-31 11:03:43,420 INFO: 127.0.0.1 - - [31/Dec/2024 11:03:43] "GET /dashboard_usuario_comum HTTP/1.1" 200 -
+2024-12-31 11:49:09,457 INFO:  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2024-12-31 11:49:09,639 INFO:  * Restarting with stat

@@ -20,16 +20,17 @@ from reportlab.lib import colors
 app = Flask(__name__)
 app.secret_key = '@ssjjti'  # Chave secreta para usar sessões
 
-
-# locale.setlocale(locale.LC_TIME, 'pt_BR.utf8')
+# Configurações de localidade
 locale.setlocale(locale.LC_TIME, 'en_US.utf8')
 
 # Definir o fuso horário de Brasília
 brasilia_tz = pytz.timezone('America/Sao_Paulo')
 
+# Definir banco de dados a partir da variável de ambiente
+DATABASE_URL = os.getenv('DATABASE_URL', 'sqlite:///ponto.db')  # Usará o banco configurado no Heroku ou o local
 
 def conectar_banco():
-    conn = sqlite3.connect('ponto.db')
+    conn = sqlite3.connect(DATABASE_URL)  # Conectar com o banco de dados correto
     return conn
 
 def inicializa_banco():

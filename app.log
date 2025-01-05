@@ -2401,3 +2401,143 @@
 2024-12-31 13:55:42,759 - INFO - 127.0.0.1 - - [31/Dec/2024 13:55:42] "[32mPOST /login HTTP/1.1[0m" 302 -
 2024-12-31 13:55:42,768 - INFO - 127.0.0.1 - - [31/Dec/2024 13:55:42] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
 2024-12-31 13:55:42,799 - INFO - 127.0.0.1 - - [31/Dec/2024 13:55:42] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2024-12-31 14:13:17,809 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-31 14:13:17,809 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-31 14:13:17,813 - INFO -  * Restarting with stat
+2024-12-31 14:13:18,650 - WARNING -  * Debugger is active!
+2024-12-31 14:13:18,652 - INFO -  * Debugger PIN: 166-491-964
+2024-12-31 14:13:21,088 - INFO - 127.0.0.1 - - [31/Dec/2024 14:13:21] "GET /usuarios HTTP/1.1" 200 -
+2024-12-31 14:13:27,580 - INFO - 127.0.0.1 - - [31/Dec/2024 14:13:27] "[31m[1mGET /excluir_usuario/3 HTTP/1.1[0m" 405 -
+2024-12-31 14:19:13,103 - INFO - 127.0.0.1 - - [31/Dec/2024 14:19:13] "[32mPOST /excluir_usuario/4 HTTP/1.1[0m" 302 -
+2024-12-31 14:19:13,107 - INFO - 127.0.0.1 - - [31/Dec/2024 14:19:13] "GET /usuarios HTTP/1.1" 200 -
+2024-12-31 14:19:13,130 - INFO - 127.0.0.1 - - [31/Dec/2024 14:19:13] "[32mPOST /excluir_usuario/3 HTTP/1.1[0m" 302 -
+2024-12-31 14:19:13,137 - INFO - 127.0.0.1 - - [31/Dec/2024 14:19:13] "GET /usuarios HTTP/1.1" 200 -
+2024-12-31 14:19:17,922 - INFO - 127.0.0.1 - - [31/Dec/2024 14:19:17] "[31m[1mGET /excluir_usuario/2 HTTP/1.1[0m" 405 -
+2024-12-31 14:20:46,762 - INFO - 127.0.0.1 - - [31/Dec/2024 14:20:46] "GET /usuarios HTTP/1.1" 200 -
+2024-12-31 14:20:55,225 - INFO - 127.0.0.1 - - [31/Dec/2024 14:20:55] "[31m[1mGET /excluir_usuario/2 HTTP/1.1[0m" 405 -
+2024-12-31 14:20:59,430 - INFO - 127.0.0.1 - - [31/Dec/2024 14:20:59] "GET /usuarios HTTP/1.1" 200 -
+2024-12-31 14:21:04,311 - INFO - 127.0.0.1 - - [31/Dec/2024 14:21:04] "[32mPOST /excluir_usuario/2 HTTP/1.1[0m" 302 -
+2024-12-31 14:21:04,313 - INFO - 127.0.0.1 - - [31/Dec/2024 14:21:04] "GET /usuarios HTTP/1.1" 200 -
+2024-12-31 14:21:04,325 - INFO - 127.0.0.1 - - [31/Dec/2024 14:21:04] "GET /usuarios HTTP/1.1" 200 -
+2024-12-31 14:22:43,183 - INFO - 127.0.0.1 - - [31/Dec/2024 14:22:43] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2024-12-31 14:22:43,253 - INFO - 127.0.0.1 - - [31/Dec/2024 14:22:43] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2024-12-31 14:22:44,718 - INFO - 127.0.0.1 - - [31/Dec/2024 14:22:44] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-12-31 14:22:44,730 - INFO - 127.0.0.1 - - [31/Dec/2024 14:22:44] "GET /login HTTP/1.1" 200 -
+2024-12-31 14:22:46,100 - INFO - 127.0.0.1 - - [31/Dec/2024 14:22:46] "GET /cadastro HTTP/1.1" 200 -
+2024-12-31 14:23:01,378 - INFO - 127.0.0.1 - - [31/Dec/2024 14:23:01] "[32mPOST /cadastro HTTP/1.1[0m" 302 -
+2024-12-31 14:23:01,384 - INFO - 127.0.0.1 - - [31/Dec/2024 14:23:01] "GET /login?success=Usuário+Lucas+Brandao+cadastrado+com+sucesso+como+comum! HTTP/1.1" 200 -
+2024-12-31 14:23:02,604 - INFO - 127.0.0.1 - - [31/Dec/2024 14:23:02] "GET /cadastro HTTP/1.1" 200 -
+2024-12-31 14:23:11,781 - INFO - 127.0.0.1 - - [31/Dec/2024 14:23:11] "[32mPOST /cadastro HTTP/1.1[0m" 302 -
+2024-12-31 14:23:11,786 - INFO - 127.0.0.1 - - [31/Dec/2024 14:23:11] "GET /login?success=Usuário+Lucas+Saulo+cadastrado+com+sucesso+como+comum! HTTP/1.1" 200 -
+2024-12-31 14:23:13,688 - INFO - 127.0.0.1 - - [31/Dec/2024 14:23:13] "GET /cadastro HTTP/1.1" 200 -
+2024-12-31 14:23:26,577 - INFO - 127.0.0.1 - - [31/Dec/2024 14:23:26] "[32mPOST /cadastro HTTP/1.1[0m" 302 -
+2024-12-31 14:23:26,585 - INFO - 127.0.0.1 - - [31/Dec/2024 14:23:26] "GET /login?success=Usuário+Kaio+Menez+cadastrado+com+sucesso+como+comum! HTTP/1.1" 200 -
+2024-12-31 14:25:40,977 - INFO - 127.0.0.1 - - [31/Dec/2024 14:25:40] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-31 14:25:40,984 - INFO - 127.0.0.1 - - [31/Dec/2024 14:25:40] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2024-12-31 14:25:41,015 - INFO - 127.0.0.1 - - [31/Dec/2024 14:25:41] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2024-12-31 14:25:42,141 - INFO - 127.0.0.1 - - [31/Dec/2024 14:25:42] "GET /usuarios HTTP/1.1" 200 -
+2024-12-31 14:25:48,692 - INFO - 127.0.0.1 - - [31/Dec/2024 14:25:48] "[32mPOST /excluir_usuario/7 HTTP/1.1[0m" 302 -
+2024-12-31 14:25:48,700 - INFO - 127.0.0.1 - - [31/Dec/2024 14:25:48] "GET /usuarios HTTP/1.1" 200 -
+2024-12-31 14:25:55,283 - INFO - 127.0.0.1 - - [31/Dec/2024 14:25:55] "[32mPOST /excluir_usuario/6 HTTP/1.1[0m" 302 -
+2024-12-31 14:25:55,287 - INFO - 127.0.0.1 - - [31/Dec/2024 14:25:55] "GET /usuarios HTTP/1.1" 200 -
+2024-12-31 14:25:55,300 - INFO - 127.0.0.1 - - [31/Dec/2024 14:25:55] "GET /usuarios HTTP/1.1" 200 -
+2024-12-31 14:26:05,309 - INFO - 127.0.0.1 - - [31/Dec/2024 14:26:05] "[32mPOST /excluir_usuario/5 HTTP/1.1[0m" 302 -
+2024-12-31 14:26:05,317 - INFO - 127.0.0.1 - - [31/Dec/2024 14:26:05] "GET /usuarios HTTP/1.1" 200 -
+2024-12-31 14:26:07,065 - INFO - 127.0.0.1 - - [31/Dec/2024 14:26:07] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2024-12-31 14:26:07,098 - INFO - 127.0.0.1 - - [31/Dec/2024 14:26:07] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2024-12-31 14:26:09,136 - INFO - 127.0.0.1 - - [31/Dec/2024 14:26:09] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-12-31 14:26:09,146 - INFO - 127.0.0.1 - - [31/Dec/2024 14:26:09] "GET /login HTTP/1.1" 200 -
+2024-12-31 14:33:09,013 - INFO - 127.0.0.1 - - [31/Dec/2024 14:33:09] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-31 14:33:09,025 - INFO - 127.0.0.1 - - [31/Dec/2024 14:33:09] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2024-12-31 14:33:09,088 - INFO - 127.0.0.1 - - [31/Dec/2024 14:33:09] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2024-12-31 14:33:10,513 - DEBUG - Arquivo C:\Users\jti30\PycharmProjects\PythonProject2\temp_backups\ponto_backup_20241231_143310.zip criado com sucesso!
+2024-12-31 14:33:10,533 - DEBUG - Arquivo C:\Users\jti30\PycharmProjects\PythonProject2\temp_backups\ponto_backup_20241231_143310.zip lido com sucesso!
+2024-12-31 14:33:10,534 - DEBUG - Arquivo anexado com sucesso!
+2024-12-31 14:33:11,946 - DEBUG - Conexão com o servidor SMTP iniciada.
+2024-12-31 14:33:12,698 - DEBUG - Logado no servidor SMTP.
+2024-12-31 14:33:18,332 - DEBUG - Email enviado com sucesso!
+2024-12-31 14:33:18,333 - INFO - 127.0.0.1 - - [31/Dec/2024 14:33:18] "GET /baixar_e_enviar_backup HTTP/1.1" 200 -
+2024-12-31 14:35:30,588 - INFO - 127.0.0.1 - - [31/Dec/2024 14:35:30] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2024-12-31 14:35:42,380 - DEBUG - Arquivo C:\Users\jti30\PycharmProjects\PythonProject2\temp_backups\ponto_backup_20241231_143542.zip criado com sucesso!
+2024-12-31 14:35:42,399 - DEBUG - Arquivo C:\Users\jti30\PycharmProjects\PythonProject2\temp_backups\ponto_backup_20241231_143542.zip lido com sucesso!
+2024-12-31 14:35:42,400 - DEBUG - Arquivo anexado com sucesso!
+2024-12-31 14:35:44,611 - DEBUG - Conexão com o servidor SMTP iniciada.
+2024-12-31 14:35:45,386 - DEBUG - Logado no servidor SMTP.
+2024-12-31 14:35:48,952 - DEBUG - Email enviado com sucesso!
+2024-12-31 14:35:48,954 - INFO - 127.0.0.1 - - [31/Dec/2024 14:35:48] "GET /baixar_e_enviar_backup HTTP/1.1" 200 -
+2024-12-31 14:36:42,687 - INFO - 127.0.0.1 - - [31/Dec/2024 14:36:42] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2024-12-31 14:36:42,730 - INFO - 127.0.0.1 - - [31/Dec/2024 14:36:42] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2024-12-31 14:36:44,718 - DEBUG - Arquivo C:\Users\jti30\PycharmProjects\PythonProject2\temp_backups\ponto_backup_20241231_143644.zip criado com sucesso!
+2024-12-31 14:36:44,737 - DEBUG - Arquivo C:\Users\jti30\PycharmProjects\PythonProject2\temp_backups\ponto_backup_20241231_143644.zip lido com sucesso!
+2024-12-31 14:36:44,737 - DEBUG - Arquivo anexado com sucesso!
+2024-12-31 14:36:45,875 - DEBUG - Conexão com o servidor SMTP iniciada.
+2024-12-31 14:36:46,716 - DEBUG - Logado no servidor SMTP.
+2024-12-31 14:36:50,354 - DEBUG - Email enviado com sucesso!
+2024-12-31 14:36:50,356 - INFO - 127.0.0.1 - - [31/Dec/2024 14:36:50] "GET /baixar_e_enviar_backup HTTP/1.1" 200 -
+2025-01-03 11:02:08,428 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-01-03 11:02:08,429 - INFO - [33mPress CTRL+C to quit[0m
+2025-01-03 11:02:08,432 - INFO -  * Restarting with stat
+2025-01-03 11:02:09,316 - WARNING -  * Debugger is active!
+2025-01-03 11:02:09,322 - INFO -  * Debugger PIN: 959-516-906
+2025-01-03 11:02:09,405 - INFO - 127.0.0.1 - - [03/Jan/2025 11:02:09] "GET /login HTTP/1.1" 200 -
+2025-01-03 11:02:09,478 - INFO - 127.0.0.1 - - [03/Jan/2025 11:02:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-01-03 11:02:39,152 - INFO - 127.0.0.1 - - [03/Jan/2025 11:02:39] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-01-03 11:02:39,197 - INFO - 127.0.0.1 - - [03/Jan/2025 11:02:39] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2025-01-03 11:02:39,277 - INFO - 127.0.0.1 - - [03/Jan/2025 11:02:39] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2025-01-03 11:02:49,127 - INFO - 127.0.0.1 - - [03/Jan/2025 11:02:49] "GET /relatorios HTTP/1.1" 200 -
+2025-01-03 11:04:11,798 - INFO - 127.0.0.1 - - [03/Jan/2025 11:04:11] "[32mPOST /relatorios HTTP/1.1[0m" 302 -
+2025-01-03 11:04:11,808 - INFO - 127.0.0.1 - - [03/Jan/2025 11:04:11] "GET /relatorios HTTP/1.1" 200 -
+2025-01-03 11:07:36,694 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-01-03 11:07:36,695 - INFO - [33mPress CTRL+C to quit[0m
+2025-01-03 11:07:36,697 - INFO -  * Restarting with stat
+2025-01-03 11:07:43,564 - WARNING -  * Debugger is active!
+2025-01-03 11:07:43,568 - INFO -  * Debugger PIN: 130-361-286
+2025-01-03 11:11:28,625 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-01-03 11:11:28,626 - INFO - [33mPress CTRL+C to quit[0m
+2025-01-03 11:11:28,628 - INFO -  * Restarting with stat
+2025-01-03 11:11:29,856 - WARNING -  * Debugger is active!
+2025-01-03 11:11:29,860 - INFO -  * Debugger PIN: 130-361-286
+2025-01-03 11:11:43,794 - INFO - 127.0.0.1 - - [03/Jan/2025 11:11:43] "GET /login HTTP/1.1" 200 -
+2025-01-03 11:11:43,864 - INFO - 127.0.0.1 - - [03/Jan/2025 11:11:43] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-01-03 11:11:51,798 - INFO - 127.0.0.1 - - [03/Jan/2025 11:11:51] "POST /login HTTP/1.1" 200 -
+2025-01-03 11:11:57,876 - INFO - 127.0.0.1 - - [03/Jan/2025 11:11:57] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-01-03 11:11:57,924 - INFO - 127.0.0.1 - - [03/Jan/2025 11:11:57] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2025-01-03 11:11:57,971 - INFO - 127.0.0.1 - - [03/Jan/2025 11:11:57] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2025-01-03 11:11:59,297 - INFO - 127.0.0.1 - - [03/Jan/2025 11:11:59] "GET /usuarios HTTP/1.1" 200 -
+2025-01-03 11:12:09,471 - INFO - 127.0.0.1 - - [03/Jan/2025 11:12:09] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2025-01-03 11:12:09,500 - INFO - 127.0.0.1 - - [03/Jan/2025 11:12:09] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2025-01-03 11:12:26,634 - INFO - 127.0.0.1 - - [03/Jan/2025 11:12:26] "GET /relatorios HTTP/1.1" 200 -
+2025-01-03 11:12:57,868 - INFO -  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\ponto aleatorio.py', reloading
+2025-01-03 11:12:58,010 - INFO -  * Restarting with stat
+2025-01-03 11:13:00,002 - WARNING -  * Debugger is active!
+2025-01-03 11:13:00,005 - INFO -  * Debugger PIN: 130-361-286
+2025-01-03 11:13:16,853 - INFO - 127.0.0.1 - - [03/Jan/2025 11:13:16] "POST /relatorios HTTP/1.1" 200 -
+2025-01-03 11:14:10,163 - INFO - 127.0.0.1 - - [03/Jan/2025 11:14:10] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2025-01-03 11:14:10,198 - INFO - 127.0.0.1 - - [03/Jan/2025 11:14:10] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2025-01-03 11:14:11,763 - INFO - 127.0.0.1 - - [03/Jan/2025 11:14:11] "GET /cadastrar_ponto HTTP/1.1" 200 -
+2025-01-03 11:14:11,806 - INFO - 127.0.0.1 - - [03/Jan/2025 11:14:11] "GET /pontos?pagina=1 HTTP/1.1" 200 -
+2025-01-03 11:14:14,263 - INFO - 127.0.0.1 - - [03/Jan/2025 11:14:14] "GET /listar_usuarios?_type=query HTTP/1.1" 200 -
+2025-01-03 11:14:15,827 - INFO - 127.0.0.1 - - [03/Jan/2025 11:14:15] "POST /cadastrar_ponto HTTP/1.1" 200 -
+2025-01-03 11:14:15,835 - INFO - 127.0.0.1 - - [03/Jan/2025 11:14:15] "GET /pontos?pagina=1 HTTP/1.1" 200 -
+2025-01-03 11:14:17,125 - INFO - 127.0.0.1 - - [03/Jan/2025 11:14:17] "POST /cadastrar_ponto HTTP/1.1" 200 -
+2025-01-03 11:14:17,132 - INFO - 127.0.0.1 - - [03/Jan/2025 11:14:17] "GET /pontos?pagina=1 HTTP/1.1" 200 -
+2025-01-03 11:14:17,700 - INFO - 127.0.0.1 - - [03/Jan/2025 11:14:17] "POST /cadastrar_ponto HTTP/1.1" 200 -
+2025-01-03 11:14:17,708 - INFO - 127.0.0.1 - - [03/Jan/2025 11:14:17] "GET /pontos?pagina=1 HTTP/1.1" 200 -
+2025-01-03 11:14:18,319 - INFO - 127.0.0.1 - - [03/Jan/2025 11:14:18] "POST /cadastrar_ponto HTTP/1.1" 200 -
+2025-01-03 11:14:18,332 - INFO - 127.0.0.1 - - [03/Jan/2025 11:14:18] "GET /pontos?pagina=1 HTTP/1.1" 200 -
+2025-01-03 11:15:37,243 - INFO -  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\ponto aleatorio.py', reloading
+2025-01-03 11:15:37,564 - INFO -  * Restarting with stat
+2025-01-03 11:15:41,700 - WARNING -  * Debugger is active!
+2025-01-03 11:15:41,703 - INFO -  * Debugger PIN: 130-361-286
+2025-01-03 11:20:16,378 - INFO -  * Detected change in 'C:\\Users\\jti30\\PycharmProjects\\PythonProject2\\app.py', reloading
+2025-01-03 11:20:17,107 - INFO -  * Restarting with stat
+2025-01-03 11:20:27,087 - WARNING -  * Debugger is active!
+2025-01-03 11:20:27,091 - INFO -  * Debugger PIN: 130-361-286
+2025-01-03 11:20:30,965 - INFO - 127.0.0.1 - - [03/Jan/2025 11:20:30] "GET /dashboard_usuario_admin HTTP/1.1" 200 -
+2025-01-03 11:20:31,018 - INFO - 127.0.0.1 - - [03/Jan/2025 11:20:31] "GET /contar_pontos_totais HTTP/1.1" 200 -
+2025-01-03 11:20:33,506 - INFO - 127.0.0.1 - - [03/Jan/2025 11:20:33] "GET /relatorios HTTP/1.1" 200 -
+2025-01-03 11:20:50,088 - INFO - 127.0.0.1 - - [03/Jan/2025 11:20:50] "POST /relatorios HTTP/1.1" 200 -

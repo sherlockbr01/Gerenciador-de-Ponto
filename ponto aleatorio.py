@@ -1,4 +1,3 @@
-import sqlite3
 from datetime import datetime, timedelta
 import random
 
@@ -58,5 +57,5 @@ def gerar_pontos_novembro(matricula, carga_horaria_padrao=8):
     print(f'Saldo negativo restante: {saldo_negativo_segundos / 3600} horas.')
 
 # Exemplo de uso do script
-matricula = '3'
+matricula = 'go0000'
 gerar_pontos_novembro(matricula)

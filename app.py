@@ -941,7 +941,7 @@ def gerar_pdf_avancado(data_inicio, data_fim, usuario, tipo_relatorio, pontos, c
         elements = []
 
         # Adicionando o título no topo
-        elements.append(Paragraph("JUSTIÇA FEDERAL SUBSEÇÃO JUDICIÁRIA DE JATAÍ", title_style))
+        elements.append(Paragraph("TESTE DE RELATORIO", title_style))
 
         # Cabeçalho abaixo do título
         elements.append(Spacer(1, 6))

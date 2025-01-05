@@ -199,119 +199,6 @@
             }
         }
     </style>
-    <script>
-      function openModal(matricula) {
-    const modal = document.getElementById('barcode-modal');
-    const img = modal.querySelector('img');
-    img.src = `{{ url_for('codigo_de_barras', matricula='') }}/${matricula}`;
-    modal.style.display = 'block';
-}
-
-function closeModal() {
-    document.getElementById('barcode-modal').style.display = 'none';
-}
-
-function saveBarcode() {
-    const img = document.querySelector('#barcode-modal img');
-    const link = document.createElement('a');
-    link.href = img.src;
-    link.download = 'codigo_de_barras.png';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
-
-function searchUsers() {
-    const searchQuery = document.querySelector('#search-name').value;
-    const searchMatricula = document.querySelector('#search-matricula').value;
-    const filterTipo = document.querySelector('#filter-tipo').value;
-    const filterDate = document.querySelector('#filter-date').value;
-    const params = new URLSearchParams({
-        search: searchQuery,
-        matricula: searchMatricula,
-        tipo: filterTipo,
-        data_cadastro: filterDate,
-        page: 1
-    });
-    window.location.href = `/usuarios?${params.toString()}`;
-}
-
-function filterUsers() {
-    searchUsers();
-}
-
-function clearFilters() {
-    document.querySelector('#search-name').value = '';
-    document.querySelector('#search-matricula').value = '';
-    document.querySelector('#filter-tipo').value = '';
-    document.querySelector('#filter-date').value = '';
-    window.location.href = '/usuarios';
-}
-
-
-function sortTable(columnIndex) {
-    const currentUrl = new URL(window.location);
-    const params = currentUrl.searchParams;
-    let sortOrder = params.get('sort_order') === 'ASC' ? 'DESC' : 'ASC';
-    params.set('sort_by', columnIndex);
-    params.set('sort_order', sortOrder);
-    window.location.href = `${currentUrl.pathname}?${params.toString()}`;
-}
-
-function gerarUsuarios() {
-    const searchQuery = document.querySelector('#search-name').value;
-    const searchMatricula = document.querySelector('#search-matricula').value;
-    const filterTipo = document.querySelector('#filter-tipo').value;
-    const filterDate = document.querySelector('#filter-date').value;
-    const params = new URLSearchParams({
-        search: searchQuery,
-        matricula: searchMatricula,
-        tipo: filterTipo,
-        data_cadastro: filterDate
-    });
-    window.location.href = `/gerar_usuarios_pdf?${params.toString()}`;
-}
-
-
-function paginate(direction) {
-    const currentUrl = new URL(window.location);
-    const params = currentUrl.searchParams;
-    let currentPage = parseInt(params.get('page')) || 1;
-    currentPage = direction === 'next' ? currentPage + 1 : currentPage - 1;
-    params.set('page', currentPage);
-    window.location.href = `${currentUrl.pathname}?${params.toString()}`;
-}
-
-function selectAllUsers(source) {
-    const checkboxes = document.getElementsByName('usuario');
-    const allSelected = Array.from(checkboxes).every(checkbox => checkbox.checked);
-    for (const checkbox of checkboxes) {
-        checkbox.checked = !allSelected;
-    }
-}
-
-
-function performBulkAction(action) {
-    const selectedUsers = [];
-    document.querySelectorAll('input[name="usuario"]:checked').forEach(checkbox => {
-        selectedUsers.push(checkbox.value);
-    });
-    if (action === 'delete') {
-        if (confirm('Tem certeza que deseja excluir os usuários selecionados?')) {
-            selectedUsers.forEach(id => {
-                fetch(`/excluir_usuario/${id}`, { method: 'POST' })
-                    .then(response => response.text())
-                    .then(data => console.log(data));
-            });
-            location.reload();
-        }
-    } else if (action === 'export') {
-        // Implementar a exportação
-    }
-}
-
-
-    </script>
 </head>
 <body class="usuarios-page">
     <header>
@@ -329,24 +216,18 @@ function performBulkAction(action) {
         <div class="container">
             <section class="usuarios-section">
                 <h2>Gerenciamento de Usuários</h2>
-
-                <!-- Barra de Busca e Filtros -->
                 <div class="search-bar">
-    <input type="text" placeholder="Buscar por nome" id="search-name">
-    <input type="text" placeholder="Buscar por matrícula" id="search-matricula">
-    <select id="filter-tipo">
-        <option value="">Todos os Tipos</option>
-        <option value="comum">Comum</option>
-        <option value="admin">Administrador</option>
-    </select>
-    <input type="date" id="filter-date">
-    <button onclick="searchUsers()">Buscar</button>
-    <button onclick="clearFilters()" class="button">Limpar Filtro</button>
-</div>
-
-
-
-                <!-- Tabela de Usuários -->
+                    <input type="text" placeholder="Buscar por nome" id="search-name">
+                    <input type="text" placeholder="Buscar por matrícula" id="search-matricula">
+                    <select id="filter-tipo">
+                        <option value="">Todos os Tipos</option>
+                        <option value="comum">Comum</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+                    <input type="date" id="filter-date">
+                    <button onclick="searchUsers()">Buscar</button>
+                    <button onclick="clearFilters()" class="button">Limpar Filtro</button>
+                </div>
                 <table>
                     <thead>
                         <tr>
@@ -367,37 +248,34 @@ function performBulkAction(action) {
                                 <td>{{ usuario[3] }}</td>
                                 <td>{{ usuario[4] }}</td>
                                 <td>
-    <a href="{{ url_for('editar_usuario', id=usuario[0]) }}" class="button">Editar</a>
-    <a href="{{ url_for('excluir_usuario', id=usuario[0]) }}" class="button button-danger" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">Excluir</a>
-    <button class="button button-cd-barras" onclick="openModal('{{ usuario[2] }}')">Cd Barras</button>
-    <a href="{{ url_for('editar_pontos', usuario_id=usuario[0]) }}" class="button">Editar Pontos</a> <!-- Atualizado -->
-</td>
-
+                                    <form action="{{ url_for('excluir_usuario', id=usuario[0]) }}" method="POST" style="display:inline;">
+                                        <button class="button button-danger" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">Excluir</button>
+                                    </form>
+                                    <button class="button button-cd-barras" onclick="openModal('{{ usuario[2] }}')">Cd Barras</button>
+                                    <a href="{{ url_for('editar_usuario', id=usuario[0]) }}" class="button">Editar</a>
+                                    <a href="{{ url_for('editar_pontos', usuario_id=usuario[0]) }}" class="button">Editar Pontos</a>
+                                </td>
                             </tr>
                         {% endfor %}
                     </tbody>
                 </table>
-
                 <!-- Paginação -->
                 <div class="pagination">
                     <button onclick="paginate('prev')" class="button">Anterior</button>
                     <span>Página <span id="current-page">{{ current_page }}</span> de <span id="total-pages">{{ total_pages }}</span></span>
                     <button onclick="paginate('next')" class="button">Próxima</button>
                 </div>
-
                 <!-- Ações em Massa -->
                 <div class="bulk-actions">
-    <button onclick="selectAllUsers(this)" class="button">Selecionar Todos</button>
-    <button onclick="performBulkAction('delete')" class="button button-danger">Excluir Selecionados</button>
-    <button onclick="performBulkAction('export')" class="button">Exportar Selecionados</button>
-    <button onclick="gerarUsuarios()" class="button">Gerar Usuários</button>
-</div>
-
+                    <button onclick="selectAllUsers(this)" class="button">Selecionar Todos</button>
+                    <button onclick="performBulkAction('delete')" class="button button-danger">Excluir Selecionados</button>
+                    <button onclick="performBulkAction('export')" class="button">Exportar Selecionados</button>
+                    <button onclick="gerarUsuarios()" class="button">Gerar Usuários</button>
+                </div>
             </section>
         </div>
     </main>
-
-    <!-- Modal -->
+    <!-- Modal para Exibir Código de Barras -->
     <div id="barcode-modal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
@@ -408,5 +286,122 @@ function performBulkAction(action) {
             </div>
         </div>
     </div>
+    <script>
+            function openModal(matricula) {
+        const modal = document.getElementById('barcode-modal');
+        const img = modal.querySelector('img');
+        img.src = `{{ url_for('codigo_de_barras', matricula='') }}/${matricula}`;
+        modal.style.display = 'block';
+      }
+
+      function closeModal() {
+        document.getElementById('barcode-modal').style.display = 'none';
+      }
+
+      function saveBarcode() {
+        const img = document.querySelector('#barcode-modal img');
+        const link = document.createElement('a');
+        link.href = img.src;
+        link.download = 'codigo_de_barras.png';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      function searchUsers() {
+        const searchQuery = document.querySelector('#search-name').value;
+        const searchMatricula = document.querySelector('#search-matricula').value;
+        const filterTipo = document.querySelector('#filter-tipo').value;
+        const filterDate = document.querySelector('#filter-date').value;
+        const params = new URLSearchParams({
+          search: searchQuery,
+          matricula: searchMatricula,
+          tipo: filterTipo,
+          data_cadastro: filterDate,
+          page: 1
+        });
+        window.location.href = `/usuarios?${params.toString()}`;
+      }
+
+      function filterUsers() {
+        searchUsers();
+      }
+
+      function clearFilters() {
+        document.querySelector('#search-name').value = '';
+        document.querySelector('#search-matricula').value = '';
+        document.querySelector('#filter-tipo').value = '';
+        document.querySelector('#filter-date').value = '';
+        window.location.href = '/usuarios';
+      }
+
+      function sortTable(columnIndex) {
+        const currentUrl = new URL(window.location);
+        const params = currentUrl.searchParams;
+        let sortOrder = params.get('sort_order') === 'ASC' ? 'DESC' : 'ASC';
+        params.set('sort_by', columnIndex);
+        params.set('sort_order', sortOrder);
+        window.location.href = `${currentUrl.pathname}?${params.toString()}`;
+      }
+
+      window.addEventListener('DOMContentLoaded', (event) => {
+        const sortableHeaders = document.querySelectorAll('th.sortable');
+        sortableHeaders.forEach((header, index) => {
+          header.addEventListener('click', () => {
+            sortTable(index);
+          });
+        });
+      });
+
+      function gerarUsuarios() {
+        const searchQuery = document.querySelector('#search-name').value;
+        const searchMatricula = document.querySelector('#search-matricula').value;
+        const filterTipo = document.querySelector('#filter-tipo').value;
+        const filterDate = document.querySelector('#filter-date').value;
+        const params = new URLSearchParams({
+          search: searchQuery,
+          matricula: searchMatricula,
+          tipo: filterTipo,
+          data_cadastro: filterDate
+        });
+        window.location.href = `/gerar_usuarios_pdf?${params.toString()}`;
+      }
+
+      function paginate(direction) {
+        const currentUrl = new URL(window.location);
+        const params = currentUrl.searchParams;
+        let currentPage = parseInt(params.get('page')) || 1;
+        currentPage = direction === 'next' ? currentPage + 1 : currentPage - 1;
+        params.set('page', currentPage);
+        window.location.href = `${currentUrl.pathname}?${params.toString()}`;
+      }
+
+      function selectAllUsers(source) {
+        const checkboxes = document.getElementsByName('usuario');
+        const allSelected = Array.from(checkboxes).every(checkbox => checkbox.checked);
+        for (const checkbox of checkboxes) {
+          checkbox.checked = !allSelected;
+        }
+      }
+
+      function performBulkAction(action) {
+        const selectedUsers = [];
+        document.querySelectorAll('input[name="usuario"]:checked').forEach(checkbox => {
+          selectedUsers.push(checkbox.value);
+        });
+        if (action === 'delete') {
+          if (confirm('Tem certeza que deseja excluir os usuários selecionados?')) {
+            selectedUsers.forEach(id => {
+              fetch(`/excluir_usuario/${id}`, { method: 'POST' })
+                .then(response => response.text())
+                .then(data => console.log(data));
+            });
+            location.reload();
+          }
+        } else if (action === 'export') {
+          // Implementar a exportação
+        }
+      }
+    </script>
 </body>
 </html>

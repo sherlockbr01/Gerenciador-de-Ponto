@@ -6,10 +6,10 @@
     <title>Dashboard do Administrador</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f7f7f7;
+            background-color: #f0f2f5;
         }
         .container {
             max-width: 1200px;
@@ -17,9 +17,9 @@
             padding: 20px;
         }
         header {
-            background-color: #004d99; /* Azul forte */
+            background-color: #00264d; /* Azul mais escuro */
             color: white;
-            padding: 10px 0;
+            padding: 20px 0;
             text-align: center;
         }
         nav ul {
@@ -96,6 +96,44 @@
             display: none;
             padding: 10px;
             border-radius: 5px;
+            text-align: center;
+            position: fixed;
+            top: 20%; /* Mais perto do topo */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+        /* Animação do spinner */
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #004d99;
+            animation: spin 1s ease infinite;
+            margin: 10px auto;
+        }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        /* Estilo da mensagem de sucesso */
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            position: fixed;
+            top: 20%; /* Mais perto do topo */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -121,7 +159,11 @@
                     <a href="{{ url_for('relatorios') }}" class="button">Relatórios</a>
                     <!-- Botão de Backup com indicação de carregamento -->
                     <a href="{{ url_for('baixar_e_enviar_backup') }}" class="button" id="backupButton">Baixar e Enviar Backup</a>
-                    <div id="loading" class="loading">Carregando...</div>
+                    <div id="loading" class="loading">
+                        <div class="spinner"></div>
+                        Carregando...
+                    </div>
+                    <div id="successMessage" class="success-message">Backup e E-mail enviados com sucesso!</div>
                 </div>
                 <div class="charts-container">
                     <div class="chart-container">
@@ -219,10 +261,11 @@
                 });
         });
 
-        // Função para exibir carregamento e alterar texto do botão de backup
+        // Função para exibir carregamento, alterar texto do botão de backup e exibir mensagem de sucesso
         document.getElementById('backupButton').addEventListener('click', function() {
             var backupButton = document.getElementById('backupButton');
             var loadingDiv = document.getElementById('loading');
+            var successMessage = document.getElementById('successMessage');
             backupButton.style.display = 'none';  // Esconde o botão durante o carregamento
             loadingDiv.style.display = 'block';   // Exibe o texto de carregamento
 
@@ -230,8 +273,11 @@
             // Aqui você poderia aguardar a resposta da API e restaurar o botão.
             setTimeout(function() {  // Simulação de tempo de carregamento
                 loadingDiv.style.display = 'none';
-                backupButton.style.display = 'inline-block'; // Mostra novamente o botão
-                alert('Backup enviado com sucesso!'); // Mensagem de sucesso
+                successMessage.style.display = 'block';  // Exibe a mensagem de sucesso
+                setTimeout(function() {
+                    successMessage.style.display = 'none';  // Esconde a mensagem de sucesso após alguns segundos
+                                        backupButton.style.display = 'inline-block'; // Mostra novamente o botão
+                }, 3000); // Simulando 3 segundos de carregamento
             }, 3000); // Simulando 3 segundos de carregamento
         });
     </script>
